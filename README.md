@@ -48,13 +48,14 @@ python celebA_128_test.py --time_steps 200 --blur_size 15 --blur_std 0.01 --blur
 
 Training
 ```
-python celebA_128.py --discrete --time_steps 300 --blur_size 27 --blur_std 0.01 --blur_routine Exponential --sampling_routine x0_step_down --save_folder ./results_celebA_128_final_extreme_circular_discrete
-python AFHQ_128.py --discrete --time_steps 300 --blur_size 27 --blur_std 0.01 --blur_routine Exponential --sampling_routine x0_step_down --save_folder ./results_AFHQ_128_final_extreme_circular_discrete
+python celebA_128.py --discrete --time_steps 300 --blur_size 27 --blur_std 0.01 --blur_routine Exponential --sampling_routine x0_step_down --save_folder <Path to save models>
+python AFHQ_128.py --discrete --time_steps 300 --blur_size 27 --blur_std 0.01 --blur_routine Exponential --sampling_routine x0_step_down --save_folder <Path to save models>
 ```
 
 Sampling with Perfect Symmetry
 ```
-
+python celebA_128_test.py --gmm_cluster 1 --noise 0.000 --discrete --time_steps 300 --blur_size 27 --blur_std 0.01 --blur_routine Exponential --sampling_routine x0_step_down --save_folder <Path to save results> --load_path <Path to load models>  --test_type train_distribution_mean_blur_torch_gmm_ablation
+python AFHQ_128_test.py --gmm_cluster 1 --noise 0.000 --discrete --time_steps 300 --blur_size 27 --blur_std 0.01 --blur_routine Exponential --sampling_routine x0_step_down --save_folder <Path to save results> --load_path <Path to load models> --test_type train_distribution_mean_blur_torch_gmm_ablation
 ```
 
 
@@ -62,9 +63,14 @@ Sampling with Perfect Symmetry
 
 #### Generation
 
+Training
 ```
 cd demixing-diffusion-pytorch
-python AFHQ_128_to_celebA_128.py --time_steps 200 --sampling_routine x0_step_down --save_folder ./results_AFHQ_128_to_celebA_128_200_steps
+python AFHQ_128_to_celebA_128.py --time_steps 200 --sampling_routine x0_step_down --save_folder <path to save models>
+```
+Sampling
+```
+python AFHQ_128_to_celebA_128_test.py --time_steps 200 --sampling_routine x0_step_down --save_folder <Path to save images> --load_path <Path to load model> --test_type test_sample_and_save_for_fid
 ```
 
 ## Inpaint
@@ -76,10 +82,18 @@ cd defading-diffusion-pytorch
 
 #### Generation
 
+Training
 ```
 cd defading-generation-diffusion-pytorch
-python celebA_constant_128.py --reverse --kernel_std 0.05 --initial_mask 1 --time_steps 750 --sampling_routine x0_step_down --save_folder ./results_celebA_128_1_0_05_300_steps_reverse_constant
+python celebA_128.py --reverse --kernel_std 0.05 --initial_mask 1 --time_steps 750 --sampling_routine x0_step_down --save_folder <Path to save models>
 ```
+
+Sampling
+```
+python celebA_constant_128_test.py --noise 0 --reverse --kernel_std 0.05 --initial_mask 1 --time_steps 750 --sampling_routine x0_step_down --save_folder <Path to save images> --load_path <Path to load model> --test_type test_sample_and_save_for_fid
+```
+
+
 
 ## Super-Resolution
 ```
