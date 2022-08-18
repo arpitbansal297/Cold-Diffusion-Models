@@ -24,14 +24,14 @@ python AFHQ_noise_128.py --time_steps 200 --sampling_routine ddim --save_folder 
 cd deblurring-diffusion-pytorch
 ```
 
-### Transformation
+#### Transformation
 ```
 python mnist_train.py --time_steps 20 --blur_size 11 --blur_std 7.0 --blur_routine 'Constant' --sampling_routine 'x0_step_down' --save_folder './results_mnist_constant_11_20'
 python cifar10_train.py --time_steps 50 --blur_routine 'Special_6_routine' --sampling_routine 'x0_step_down' --save_folder './results_cifar10_special_6' 
 python celebA_128.py --time_steps 200 --blur_size 15 --blur_std 0.01 --blur_routine Exponential_reflect --sampling_routine x0_step_down --save_folder ./results_celebA_128_final_less
 ```
 
-### Generation
+#### Generation
 ```
 python celebA_128.py --discrete --time_steps 300 --blur_size 27 --blur_std 0.01 --blur_routine Exponential --sampling_routine x0_step_down --save_folder ./results_celebA_128_final_extreme_circular_discrete
 python AFHQ_128.py --discrete --time_steps 300 --blur_size 27 --blur_std 0.01 --blur_routine Exponential --sampling_routine x0_step_down --save_folder ./results_AFHQ_128_final_extreme_circular_discrete
