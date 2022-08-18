@@ -47,6 +47,7 @@ parser.add_argument('--blur_std', default=0.1, type=float)
 parser.add_argument('--blur_size', default=3, type=int)
 parser.add_argument('--save_folder', default='./results_mnist', type=str)
 parser.add_argument('--load_path', default=None, type=str)
+parser.add_argument('--data_path', default='./root_mnist/', type=str)
 parser.add_argument('--test_type', default='train_data', type=str)
 parser.add_argument('--blur_routine', default='Incremental', type=str)
 parser.add_argument('--train_routine', default='Final', type=str)
@@ -59,9 +60,9 @@ print(args)
 
 img_path=None
 if 'train' in args.test_type:
-    img_path = './root_mnist/'
+    img_path = args.data_path
 elif 'test' in args.test_type:
-    img_path = './root_mnist_test/'
+    img_path = args.data_path
 
 print("Img Path is ", img_path)
 

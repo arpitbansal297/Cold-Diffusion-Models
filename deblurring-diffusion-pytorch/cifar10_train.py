@@ -47,6 +47,7 @@ parser.add_argument('--blur_size', default=3, type=int)
 parser.add_argument('--image_size', default=32, type=int)
 parser.add_argument('--batch_size', default=32, type=int)
 parser.add_argument('--save_folder', default='./results_cifar10', type=str)
+parser.add_argument('--data_path', default='./root_cifar10/', type=str)
 parser.add_argument('--load_path', default=None, type=str)
 parser.add_argument('--blur_routine', default='Incremental', type=str)
 parser.add_argument('--train_routine', default='Final', type=str)
@@ -91,7 +92,7 @@ diffusion = torch.nn.DataParallel(diffusion, device_ids=range(torch.cuda.device_
 
 trainer = Trainer(
     diffusion,
-    './root_cifar10/',
+    args.data_path,
     image_size = args.image_size,
     train_batch_size = args.batch_size,
     train_lr = 2e-5,

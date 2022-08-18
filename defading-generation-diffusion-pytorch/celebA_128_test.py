@@ -26,6 +26,7 @@ parser.add_argument('--time_steps', default=50, type=int)
 parser.add_argument('--train_steps', default=700000, type=int)
 parser.add_argument('--save_folder', default='./results_cifar10', type=str)
 parser.add_argument('--load_path', default=None, type=str)
+parser.add_argument('--data_path', default='../deblurring-diffusion-pytorch/root_celebA_128_train_new/', type=str)
 parser.add_argument('--train_routine', default='Final', type=str)
 parser.add_argument('--sampling_routine', default='default', type=str)
 parser.add_argument('--remove_time_embed', action="store_true")
@@ -42,9 +43,9 @@ print(args)
 
 img_path=None
 if 'train' in args.test_type:
-    img_path = '../deblurring-diffusion-pytorch/root_celebA_128_train_new/'
+    img_path = args.data_path
 elif 'test' in args.test_type:
-    img_path = '../deblurring-diffusion-pytorch/root_celebA_128_test_new/'
+    img_path = args.data_path
 
 model = Unet(
     dim = 64,

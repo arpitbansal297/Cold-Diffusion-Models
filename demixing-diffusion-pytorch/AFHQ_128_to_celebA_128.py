@@ -25,6 +25,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--time_steps', default=50, type=int)
 parser.add_argument('--train_steps', default=700000, type=int)
 parser.add_argument('--save_folder', default='./results_cifar10', type=str)
+parser.add_argument('--data_path_start', default='../deblurring-diffusion-pytorch/AFHQ/afhq/train/', type=str)
+parser.add_argument('--data_path_end', default='../deblurring-diffusion-pytorch/root_celebA_128_train_new/', type=str)
 parser.add_argument('--load_path', default=None, type=str)
 parser.add_argument('--train_routine', default='Final', type=str)
 parser.add_argument('--sampling_routine', default='default', type=str)
@@ -61,8 +63,8 @@ diffusion = torch.nn.DataParallel(diffusion, device_ids=range(torch.cuda.device_
 
 trainer = Trainer(
     diffusion,
-    '../deblurring-diffusion-pytorch/root_celebA_128_train_new/',
-    '../deblurring-diffusion-pytorch/AFHQ/afhq/train/',
+    args.data_path_end,
+    args.data_path_start,
     image_size = 128,
     train_batch_size = 32,
     train_lr = 2e-5,
