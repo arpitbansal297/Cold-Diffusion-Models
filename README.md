@@ -4,20 +4,23 @@ This repository is the official PyTorch implementation of Cold-Diffusion. Find t
 
 ## Denoise
 
-#### Generation
-
-sampling_routine with fixed noise
+#### Training 
 ```
 cd denoising-diffusion-pytorch
-python celebA_noise_128.py --time_steps 200 --sampling_routine x0_step_down --save_folder ./results_celebA_128_200_steps_noise --load_path ./results_celebA_128_200_steps_noise/model.pt
-python AFHQ_noise_128.py --time_steps 200 --sampling_routine x0_step_down --save_folder ./results_AFHQ_128_200_steps_noise --load_path ./results_AFHQ_128_200_steps_noise/model.pt
+python celebA_noise_128.py --time_steps 200 --sampling_routine x0_step_down --save_folder <Path to save model> --data_path <Path to data folder>
+python AFHQ_noise_128.py --time_steps 200 --sampling_routine x0_step_down --save_folder <Path to save model> --data_path <Path to data folder>
 ```
 
 sampling_routine with estimated noise
 ```
-cd denoising-diffusion-pytorch
-python celebA_noise_128.py --time_steps 200 --sampling_routine ddim --save_folder ./results_celebA_128_200_steps_noise --load_path ./results_celebA_128_200_steps_noise/model.pt
-python AFHQ_noise_128.py --time_steps 200 --sampling_routine ddim --save_folder ./results_AFHQ_128_200_steps_noise --load_path ./results_AFHQ_128_200_steps_noise/model.pt
+python celebA_noise_128_test.py --time_steps 200 --sampling_routine ddim --save_folder <Path to save images> --load_path <Path to load model> --test_type test_sample_and_save_for_fid
+python AFHQ_noise_128_test.py --time_steps 200 --sampling_routine ddim --save_folder <Path to save images> --load_path <Path to load model> --test_type test_sample_and_save_for_fid
+```
+
+sampling_routine with fixed noise
+```
+python celebA_noise_128_test.py --time_steps 200 --sampling_routine x0_step_down --save_folder <Path to save images> --load_path <Path to load model> --test_type test_sample_and_save_for_fid
+python AFHQ_noise_128_test.py --time_steps 200 --sampling_routine x0_step_down --save_folder <Path to save images> --load_path <Path to load model> --test_type test_sample_and_save_for_fid
 ```
 
 ## Deblur
@@ -27,17 +30,33 @@ cd deblurring-diffusion-pytorch
 ```
 
 #### Transformation
+Training
 ```
-python mnist_train.py --time_steps 20 --blur_size 11 --blur_std 7.0 --blur_routine 'Constant' --sampling_routine 'x0_step_down' --save_folder './results_mnist_constant_11_20'
-python cifar10_train.py --time_steps 50 --blur_routine 'Special_6_routine' --sampling_routine 'x0_step_down' --save_folder './results_cifar10_special_6' 
-python celebA_128.py --time_steps 200 --blur_size 15 --blur_std 0.01 --blur_routine Exponential_reflect --sampling_routine x0_step_down --save_folder ./results_celebA_128_final_less
+python mnist_train.py --time_steps 20 --blur_size 11 --blur_std 7.0 --blur_routine 'Constant' --sampling_routine x0_step_down --data_path <Path to data folder> --save_folder <Path to save model> 
+python cifar10_train.py --time_steps 50 --blur_routine 'Special_6_routine' --sampling_routine x0_step_down --data_path <Path to data folder> --save_folder <Path to save model> 
+python celebA_128.py --time_steps 200 --blur_size 15 --blur_std 0.01 --blur_routine Exponential_reflect --sampling_routine x0_step_down --save_folder <Path to save model> 
+```
+
+Testing
+```
+python mnist_test.py --time_steps 20 --blur_size 11 --blur_std 7.0 --blur_routine 'Constant' --sampling_routine 'x0_step_down' --save_folder <Path to save results> --test_type test_data
+python cifar10_test.py --time_steps 50 --blur_routine 'Special_6_routine' --sampling_routine 'x0_step_down' --save_folder <Path to save results> --test_type test_data
+python celebA_128_test.py --time_steps 200 --blur_size 15 --blur_std 0.01 --blur_routine Exponential_reflect --sampling_routine x0_step_down --save_folder <Path to save results> --test_type test_data
 ```
 
 #### Generation
+
+Training
 ```
 python celebA_128.py --discrete --time_steps 300 --blur_size 27 --blur_std 0.01 --blur_routine Exponential --sampling_routine x0_step_down --save_folder ./results_celebA_128_final_extreme_circular_discrete
 python AFHQ_128.py --discrete --time_steps 300 --blur_size 27 --blur_std 0.01 --blur_routine Exponential --sampling_routine x0_step_down --save_folder ./results_AFHQ_128_final_extreme_circular_discrete
 ```
+
+Sampling with Perfect Symmetry
+```
+
+```
+
 
 ## Animorph
 
