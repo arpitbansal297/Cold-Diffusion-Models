@@ -48,6 +48,7 @@ parser.add_argument('--sample_steps', default=None, type=int)
 parser.add_argument('--blur_std', default=0.1, type=float)
 parser.add_argument('--save_folder', default='progression_cifar', type=str)
 parser.add_argument('--load_path', default='/cmlscratch/eborgnia/cold_diffusion/paper_defading_random_1/model.pt', type=str)
+parser.add_argument('--data_path', default='./root_cifar10_test/', type=str)
 parser.add_argument('--test_type', default='test_paper_showing_diffusion_images_diff', type=str)
 parser.add_argument('--fade_routine', default='Random_Incremental', type=str)
 parser.add_argument('--sampling_routine', default='x0_step_down', type=str)
@@ -60,9 +61,9 @@ print(args)
 
 img_path=None
 if 'train' in args.test_type:
-    img_path = './root_cifar10/'
+    img_path = args.data_path
 elif 'test' in args.test_type:
-    img_path = './root_cifar10_test/'
+    img_path = args.data_path
 
 print("Img Path is ", img_path)
 

@@ -30,6 +30,7 @@ parser.add_argument('--kernel_std', default=0.2, type=float)
 parser.add_argument('--initial_mask', default=1, type=int)
 parser.add_argument('--save_folder', default='inpainting_with_algorithm_1', type=str)
 parser.add_argument('--load_path', default='centered_mask_celebA_128_100_step_ker_0.2_data_augmentation_float/model.pt', type=str)
+parser.add_argument('--data_path', default='/cmlscratch/bansal01/spring_2022/Cold-Diffusion/deblurring-diffusion-pytorch/root_celebA_128_test_new/', type=str)
 parser.add_argument('--test_type', default='test_data', type=str)
 parser.add_argument('--fade_routine', default='Incremental', type=str)
 parser.add_argument('--sampling_routine', default='default', type=str)
@@ -43,9 +44,9 @@ print(args)
 
 img_path=None
 if 'train' in args.test_type:
-    img_path = '/cmlscratch/bansal01/spring_2022/Cold-Diffusion/deblurring-diffusion-pytorch/root_celebA_128_train_new/'
+    img_path = args.data_path
 elif 'test' in args.test_type:
-    img_path = '/cmlscratch/bansal01/spring_2022/Cold-Diffusion/deblurring-diffusion-pytorch/root_celebA_128_test_new/'
+    img_path = args.data_path
 
 model = Unet(
     dim=64,

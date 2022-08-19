@@ -54,6 +54,7 @@ parser.add_argument('--time_steps', default=50, type=int)
 parser.add_argument('--sample_steps', default=None, type=int)
 parser.add_argument('--save_folder', default='./results_cifar10', type=str)
 parser.add_argument('--load_path', default=None, type=str)
+parser.add_argument('--data_path', default='./root_cifar10_test/', type=str)
 parser.add_argument('--test_type', default='train_data', type=str)
 parser.add_argument('--resolution_routine', default='Incremental', type=str)
 parser.add_argument('--train_routine', default='Final', type=str)
@@ -67,11 +68,11 @@ print(args)
 
 img_path=None
 if args.test_type == 'train_distribution_cov_vector':
-    img_path = './root_cifar10/'
+    img_path = args.data_path
 elif 'train' in args.test_type:
-    img_path = './root_cifar10/'
+    img_path = args.data_path
 elif 'test' in args.test_type:
-    img_path = './root_cifar10_test/'
+    img_path = args.data_path
 
 print("Img Path is ", img_path)
 

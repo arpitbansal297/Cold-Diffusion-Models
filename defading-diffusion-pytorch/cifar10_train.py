@@ -47,6 +47,7 @@ parser.add_argument('--train_steps', default=700000, type=int)
 parser.add_argument('--save_folder', default=None, type=str)
 parser.add_argument('--blur_std', default=0.1, type=float)
 parser.add_argument('--load_path', default=None, type=str)
+parser.add_argument('--data_path', default='./root_cifar10/', type=str)
 parser.add_argument('--fade_routine', default='Random_Incremental', type=str)
 parser.add_argument('--sampling_routine', default='x0_step_down', type=str)
 parser.add_argument('--discrete', action="store_true")
@@ -80,7 +81,7 @@ diffusion = GaussianDiffusion(
 
 trainer = Trainer(
     diffusion,
-    './root_cifar10/',
+    args.data_path,
     image_size=32,
     train_batch_size=32,
     train_lr=2e-5,
