@@ -1,7 +1,7 @@
 # Cold Diffusion: Inverting Arbitrary Image Transforms Without Noise
 <img src="./all_transform_cover.png" width="1000px"></img>
 
-This repository is the official PyTorch implementation of Cold-Diffusion. Find the paper on arxiv
+This repository is the official PyTorch implementation of Cold-Diffusion. Find [the paper on arxiv](https://arxiv.org/abs/2208.09392)
 
 Download the CelebA-HQ and AFHQ dataset.
 Use the following script to create data and use them as path to data for MNIST, Cifar10 and CelebA. 
@@ -169,4 +169,19 @@ Testing
 ```
 python test.py --dataset cifar10 --time_steps 20 --forward_process_type ‘Decolorization’ --exp_name <exp-name>  --decolor_total_remove --decolor_routine ‘Linear’ --dataset_folder <path-to-dataset> --sampling_routine x0_step_down --test_type test_data --order_seed 1
 python test.py --dataset celebA --time_steps 20 --forward_process_type ‘Decolorization’ --exp_name <exp-name>  --decolor_total_remove --decolor_routine ‘Linear’ --dataset_folder <path-to-dataset> --sampling_routine x0_step_down --test_type test_data --order_seed 1
+```
+
+
+## BibTeX Citation
+```
+@misc{https://doi.org/10.48550/arxiv.2208.09392,
+  doi = {10.48550/ARXIV.2208.09392},
+  url = {https://arxiv.org/abs/2208.09392},
+  author = {Bansal, Arpit and Borgnia, Eitan and Chu, Hong-Min and Li, Jie S. and Kazemi, Hamid and Huang, Furong and Goldblum, Micah and Geiping, Jonas and Goldstein, Tom},
+  keywords = {Computer Vision and Pattern Recognition (cs.CV), Machine Learning (cs.LG), FOS: Computer and information sciences, FOS: Computer and information sciences},
+  title = {Cold Diffusion: Inverting Arbitrary Image Transforms Without Noise},
+  publisher = {arXiv},
+  year = {2022},
+  copyright = {arXiv.org perpetual, non-exclusive license}
+}
 ```
