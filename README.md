@@ -1,7 +1,7 @@
 # Cold Diffusion: Inverting Arbitrary Image Transforms Without Noise
 <img src="./all_transform_cover.png" width="1000px"></img>
 
-This repository is the official PyTorch implementation of Cold-Diffusion. Find the paper on arxiv
+This repository is the official PyTorch implementation of <a href="https://arxiv.org/abs/2208.09392">Cold-Diffusion</a>.
 
 Download the CelebA-HQ and AFHQ dataset.
 Use the following script to create data and use them as path to data for MNIST, Cifar10 and CelebA. 
@@ -169,4 +169,18 @@ Testing
 ```
 python test.py --dataset cifar10 --time_steps 20 --forward_process_type ‘Decolorization’ --exp_name <exp-name>  --decolor_total_remove --decolor_routine ‘Linear’ --dataset_folder <path-to-dataset> --sampling_routine x0_step_down --test_type test_data --order_seed 1
 python test.py --dataset celebA --time_steps 20 --forward_process_type ‘Decolorization’ --exp_name <exp-name>  --decolor_total_remove --decolor_routine ‘Linear’ --dataset_folder <path-to-dataset> --sampling_routine x0_step_down --test_type test_data --order_seed 1
+```
+
+
+## Citation
+
+```bibtex
+@misc{bansal2022cold,
+      title={Cold Diffusion: Inverting Arbitrary Image Transforms Without Noise}, 
+      author={Arpit Bansal and Eitan Borgnia and Hong-Min Chu and Jie S. Li and Hamid Kazemi and Furong Huang and Micah Goldblum and Jonas Geiping and Tom Goldstein},
+      year={2022},
+      eprint={2208.09392},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
 ```
