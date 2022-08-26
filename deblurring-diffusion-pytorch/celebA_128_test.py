@@ -35,17 +35,22 @@ def del_folder(path):
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--time_steps', default=50, type=int)
+parser.add_argument('--time_steps', default=50, type=int,
+                    help="This is the number of steps in which a clean image looses information.")
 parser.add_argument('--sample_steps', default=None, type=int)
-parser.add_argument('--blur_std', default=0.1, type=float)
-parser.add_argument('--blur_size', default=3, type=int)
+parser.add_argument('--blur_std', default=0.1, type=float,
+                    help='It sets the standard deviation for blur routines which have different meaning based on blur routine.')
+parser.add_argument('--blur_size', default=3, type=int,
+                    help='It sets the size of gaussian blur used in blur routines for each step t')
 parser.add_argument('--save_folder', default='./results_cifar10', type=str)
 parser.add_argument('--data_path', default='./root_celebA_128_train_new/', type=str)
 parser.add_argument('--load_path', default=None, type=str)
 parser.add_argument('--test_type', default='train_data', type=str)
-parser.add_argument('--blur_routine', default='Incremental', type=str)
+parser.add_argument('--blur_routine', default='Incremental', type=str,
+                    help='This will set the type of blur routine one can use, check the code for what each one of them does in detail')
 parser.add_argument('--train_routine', default='Final', type=str)
-parser.add_argument('--sampling_routine', default='x0_step_down', type=str)
+parser.add_argument('--sampling_routine', default='x0_step_down', type=str,
+                    help='The choice of sampling routine for reversing the diffusion process, when set as default it corresponds to Alg. 1 while when set as x0_step_down it stands for Alg. 2')
 parser.add_argument('--remove_time_embed', action="store_true")
 parser.add_argument('--residual', action="store_true")
 parser.add_argument('--gmm_size', default=8, type=int)

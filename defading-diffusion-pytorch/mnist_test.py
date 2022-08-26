@@ -45,7 +45,7 @@ if create:
 parser = argparse.ArgumentParser()
 parser.add_argument('--time_steps', default=50, type=int)
 parser.add_argument('--sample_steps', default=None, type=int)
-parser.add_argument('--blur_std', default=0.1, type=float)
+parser.add_argument('--kernel_std', default=0.1, type=float)
 parser.add_argument('--save_folder', default='progression_mnist', type=str)
 parser.add_argument('--load_path', default='/cmlscratch/eborgnia/cold_diffusion/paper_defading_random_mnist_1/model.pt', type=str)
 parser.add_argument('--data_path', default='./root_mnist_test/', type=str)
@@ -81,7 +81,7 @@ diffusion = GaussianDiffusion(
     channels=1,
     timesteps=args.time_steps,   # number of steps
     loss_type='l1',    # L1 or L2
-    kernel_std=args.blur_std,
+    kernel_std=args.kernel_std,
     fade_routine=args.fade_routine,
     sampling_routine=args.sampling_routine,
     discrete=args.discrete

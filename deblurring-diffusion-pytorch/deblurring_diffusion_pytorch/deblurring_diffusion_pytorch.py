@@ -1181,8 +1181,6 @@ class Trainer(object):
 
 
     def train(self):
-        experiment = Experiment(api_key="57ArytWuo2X4cdDmgU1jxin77",
-                                project_name="Cold_Diffusion_Cycle")
 
         backwards = partial(loss_backwards, self.fp16)
 
@@ -1206,7 +1204,6 @@ class Trainer(object):
                 self.step_ema()
 
             if self.step != 0 and self.step % self.save_and_sample_every == 0:
-                experiment.log_current_epoch(self.step)
                 milestone = self.step // self.save_and_sample_every
                 batches = self.batch_size
                 og_img = next(self.dl).cuda()
@@ -1226,7 +1223,6 @@ class Trainer(object):
                                  nrow=6)
 
                 acc_loss = acc_loss/(self.save_and_sample_every+1)
-                experiment.log_metric("Training Loss", acc_loss, step=self.step)
                 print(f'Mean of last {self.step}: {acc_loss}')
                 acc_loss=0
 

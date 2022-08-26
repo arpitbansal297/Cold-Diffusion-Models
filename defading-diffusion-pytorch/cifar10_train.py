@@ -45,7 +45,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--time_steps', default=50, type=int)
 parser.add_argument('--train_steps', default=700000, type=int)
 parser.add_argument('--save_folder', default=None, type=str)
-parser.add_argument('--blur_std', default=0.1, type=float)
+parser.add_argument('--kernel_std', default=0.1, type=float)
 parser.add_argument('--load_path', default=None, type=str)
 parser.add_argument('--data_path', default='./root_cifar10/', type=str)
 parser.add_argument('--fade_routine', default='Random_Incremental', type=str)
@@ -73,7 +73,7 @@ diffusion = GaussianDiffusion(
     channels=3,
     timesteps=args.time_steps,
     loss_type='l1',
-    kernel_std=args.blur_std,
+    kernel_std=args.kernel_std,
     fade_routine=args.fade_routine,
     sampling_routine=args.sampling_routine,
     discrete=args.discrete
