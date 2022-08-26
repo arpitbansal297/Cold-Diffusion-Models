@@ -84,6 +84,7 @@ python celebA_128_test.py --time_steps 200 --blur_size 15 --blur_std 0.01 --blur
 python celebA_128.py --discrete --time_steps 300 --blur_size 27 --blur_std 0.01 --blur_routine Exponential --sampling_routine x0_step_down --data_path <Path to data folder> --save_folder <Path to save models>
 python AFHQ_128.py --discrete --time_steps 300 --blur_size 27 --blur_std 0.01 --blur_routine Exponential --sampling_routine x0_step_down --data_path <Path to data folder> --save_folder <Path to save models>
 ```
+*Testing*
 Below are two sets of testing scripts for the models/datasets presented in the paper. The first set of scripts corresponds to the sampling done with **perfect symmetry**, and the second set of scripts corresponds to sampling done with **broken** symmetry. The `--gmm_cluster` argument specifies the number of modes for the Gaussian mixture model (GMM) that is fit to the distribution of degraded images. The `--noise` argument is used to control the degree to which symmetry is broken after sampling from the GMM.
 ```
 python celebA_128_test.py --gmm_cluster 1 --noise 0.000 --discrete --time_steps 300 --blur_size 27 --blur_std 0.01 --blur_routine Exponential --sampling_routine x0_step_down --save_folder <Path to save results> --load_path <Path to load models> --data_path <Path to data folder> --test_type train_distribution_mean_blur_torch_gmm_ablation
