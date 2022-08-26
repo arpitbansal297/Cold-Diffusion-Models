@@ -117,7 +117,6 @@ The code for the conditional generation is in the `defading-diffusion-pytorch` f
 
 Below are the training scripts for the models/datasets presented in the paper.
 ```
-cd defading-diffusion-pytorch
 python mnist_train.py --time_steps 50 --save_folder <path to save models> --discrete --sampling_routine x0_step_down --train_steps 700000 --kernel_std 0.1 --fade_routine Random_Incremental --data_path <Path to data folder>
 python cifar10_train.py --time_steps 50 --save_folder <path to save models> --discrete --sampling_routine x0_step_down --train_steps 700000 --kernel_std 0.1 --fade_routine Random_Incremental --data_path <Path to data folder>
 python celebA_train.py --time_steps 100 --fade_routine Incremental --save_folder <path to save models> --sampling_routine x0_step_down --train_steps 350000 --kernel_std 0.2 --image_size 128 --dataset celebA --data_path <Path to data folder>
