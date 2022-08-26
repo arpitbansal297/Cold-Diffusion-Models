@@ -64,13 +64,13 @@ The code for these models is in the `deblurring-diffusion-pytorch` folder. For G
 
 #### Conditional Generation
 
-Below are the training scripts for the models/datasets presented in the paper.
+*Training*
 ```
 python mnist_train.py --time_steps 20 --blur_size 11 --blur_std 7.0 --blur_routine 'Constant' --sampling_routine x0_step_down --data_path <Path to data folder> --save_folder <Path to save model> 
 python cifar10_train.py --time_steps 50 --blur_routine 'Special_6_routine' --sampling_routine x0_step_down --data_path <Path to data folder> --save_folder <Path to save model> 
 python celebA_128.py --time_steps 200 --blur_size 15 --blur_std 0.01 --blur_routine Exponential_reflect --sampling_routine x0_step_down --data_path <Path to data folder> --save_folder <Path to save model> 
 ```
-Below are the testing scripts for the models/datasets presented in the paper.
+*Testing*
 ```
 python mnist_test.py --time_steps 20 --blur_size 11 --blur_std 7.0 --blur_routine 'Constant' --sampling_routine 'x0_step_down' --save_folder <Path to save results> --data_path <Path to data folder> --test_type test_data
 python cifar10_test.py --time_steps 50 --blur_routine 'Special_6_routine' --sampling_routine 'x0_step_down' --save_folder <Path to save results> --data_path <Path to data folder> --test_type test_data
@@ -79,7 +79,7 @@ python celebA_128_test.py --time_steps 200 --blur_size 15 --blur_std 0.01 --blur
 
 #### Unconditional Generation
 
-Below are the training scripts for the models/datasets presented in the paper.
+*Training*
 ```
 python celebA_128.py --discrete --time_steps 300 --blur_size 27 --blur_std 0.01 --blur_routine Exponential --sampling_routine x0_step_down --data_path <Path to data folder> --save_folder <Path to save models>
 python AFHQ_128.py --discrete --time_steps 300 --blur_size 27 --blur_std 0.01 --blur_routine Exponential --sampling_routine x0_step_down --data_path <Path to data folder> --save_folder <Path to save models>
@@ -100,11 +100,11 @@ The code for these models is in the `demixing-diffusion-pytorch` folder.
 
 #### Unconditional Generation
 
-Below is the training script for the models presented in the paper.
+*Training*
 ```
 python AFHQ_128_to_celebA_128.py --time_steps 200 --sampling_routine x0_step_down --save_folder <path to save models> --data_path_start <Path to starting data manifold> --data_path_end <Path to ending data manifold>
 ```
-Below is the testing script for the models presented in the paper.
+*Testing*
 ```
 python AFHQ_128_to_celebA_128_test.py --time_steps 200 --sampling_routine x0_step_down --save_folder <Path to save images> --load_path <Path to load model> --data_path_start <Path to starting data manifold> --data_path_end <Path to ending data manifold> --test_type test_sample_and_save_for_fid
 ```
@@ -115,13 +115,13 @@ The code for the conditional generation is in the `defading-diffusion-pytorch` f
 
 #### Conditional Generation
 
-Below are the training scripts for the models/datasets presented in the paper.
+*Training*
 ```
 python mnist_train.py --time_steps 50 --save_folder <path to save models> --discrete --sampling_routine x0_step_down --train_steps 700000 --kernel_std 0.1 --fade_routine Random_Incremental --data_path <Path to data folder>
 python cifar10_train.py --time_steps 50 --save_folder <path to save models> --discrete --sampling_routine x0_step_down --train_steps 700000 --kernel_std 0.1 --fade_routine Random_Incremental --data_path <Path to data folder>
 python celebA_train.py --time_steps 100 --fade_routine Incremental --save_folder <path to save models> --sampling_routine x0_step_down --train_steps 350000 --kernel_std 0.2 --image_size 128 --dataset celebA --data_path <Path to data folder>
 ```
-Below are the testing scripts for the models/datasets presented in the paper.
+*Testing*
 ```
 python mnist_test.py --time_steps 50 --save_folder test_mnist --discrete --sampling_routine x0_step_down --kernel_std 0.1 --initial_mask 1 --image_size 28 --fade_routine Random_Incremental --load_path <Path to load model> --data_path <Path to data folder> --test_type test_data 
 python cifar10_test.py --time_steps 50 --save_folder test_cifar10 --discrete --sampling_routine x0_step_down --kernel_std 0.1 --initial_mask 1 --image_size 32 --fade_routine Random_Incremental --load_path <Path to load model> --data_path <Path to data folder> --test_type test_data
@@ -130,12 +130,12 @@ python celebA_test.py --time_steps 100 --fade_routine Incremental --save_folder 
 
 #### Unconditional Generation
 
-Below is the training script for the models presented in the paper.
+*Training*
 ```
 python celebA_128.py --reverse --kernel_std 0.05 --initial_mask 1 --time_steps 750 --sampling_routine x0_step_down --save_folder <Path to save models> --data_path <Path to data folder>
 ```
 
-Below is the testing script for the models presented in the paper.
+*Testing*
 ```
 python celebA_constant_128_test.py --reverse --kernel_std 0.05 --time_steps 750 --sampling_routine x0_step_down --save_folder <Path to save images> --data_path <Path to data folder> --load_path <Path to load model> --test_type test_sample_and_save_for_fid
 ```
@@ -146,13 +146,13 @@ The code for these models is in the `resolution-diffusion-pytorch` folder. For d
 
 #### Conditional Generation
 
-Below are the training scripts for the models/datasets presented in the paper.
+*Training*
 ```
 python mnist_train.py --time_steps 3 --resolution_routine 'Incremental_factor_2' --save_folder <Path to save models>
 python cifar10_train.py --time_steps 3 --resolution_routine 'Incremental_factor_2' --save_folder <Path to save models>
 python celebA_128.py --time_steps 4 --resolution_routine 'Incremental_factor_2' --save_folder <Path to save models>
 ```
-Below are the testing scripts for the models/datasets presented in the paper.
+*Testing*
 ```
 python mnist_test.py --time_steps 3 --train_routine 'Final' --sampling_routine 'x0_step_down' --resolution_routine 'Incremental_factor_2' --save_folder <Path to save images> --load_path <Path to load model> --test_type test_data
 python cifar10_test.py --time_steps 3 --train_routine 'Final' --sampling_routine 'x0_step_down' --resolution_routine 'Incremental_factor_2' --save_folder <Path to save images> --load_path <Path to load model> --test_type test_data
@@ -161,7 +161,11 @@ python celebA_test.py --time_steps 4 --train_routine 'Final' --sampling_routine 
 
 #### Unconditional Generation
 
-Below is the testing script for the models presented in the paper. Here we actually use the same degradation schedule for both the conditional and unconditional generation. Hence, there is no additional training script in this subsection.
+*Training*
+```
+python celebA_test.py --time_steps 4 --train_routine 'Final' --sampling_routine 'x0_step_down' --resolution_routine 'Incremental_factor_2' --save_folder <Path to save images> --load_path <Path to load model> --test_type test_data
+```
+*Testing*
 ```
 python celebA_test.py --time_steps 4 --train_routine 'Final' --sampling_routine 'x0_step_down' --resolution_routine 'Incremental_factor_2' --save_folder <Path to save images> --load_path <Path to load model> --test_type test_data
 ```
@@ -172,12 +176,12 @@ The code for these models is in the `snowification` folder. This code stems from
 
 #### Conditional Generation
 
-Below are the training scripts for the models/datasets presented in the paper.
+*Training*
 ```
 python train.py --dataset cifar10 --time_steps 200 --forward_process_type ‘Snow’ --snow_level 3 --exp_name <exp_name>  --dataset_folder <path-to-dataset> --random_snow --fix_brightness  --sampling_routine x0_step_down
 python train.py --dataset celebA --time_steps 200 --forward_process_type ‘Snow’ --snow_level 4 --exp_name <exp_name> --dataset_folder <path-to-dataset> --random_snow --fix_brightness  --sampling_routine x0_step_down
 ```
-Below are the testing scripts for the models/datasets presented in the paper.
+*Testing*
 ```
 python test.py --dataset cifar10 --time_steps 200 --forward_process_type ‘Snow’ --snow_level 3 --exp_name <exp_name> --dataset_folder <path-to-dataset> --random_snow --fix_brightness --resume_training --sampling_routine x0_step_down --test_type test_data --order_seed 1
 python test.py --dataset celebA --time_steps 200 --forward_process_type ‘Snow’ --snow_level 4 --exp_name <exp_name> --dataset_folder <path-to-dataset> --random_snow --fix_brightness --resume_training --sampling_routine x0_step_down --test_type test_data --order_seed 1
@@ -187,12 +191,14 @@ python test.py --dataset celebA --time_steps 200 --forward_process_type ‘Snow�
 
 The code for these models is in the `decolor-diffusion` folder. For color desaturation, the arguments that specify the degradation schedule are `--time_steps`, `decolor_total_remove`, and `decolor_routine`. See the help strings in the training scripts for details on what these arguments specify.
 
-Below are the training scripts for the models/datasets presented in the paper.
+#### Conditional Generation
+
+*Training*
 ```
 python train.py --dataset cifar10 --time_steps 20 --forward_process_type ‘Decolorization’ --exp_name <exp_name> --decolor_total_remove --decolor_routine ‘Linear’ --dataset_folder <path-to-dataset>
 python train.py --dataset celebA --time_steps 20 --forward_process_type ‘Decolorization’ --exp_name <exp_name> --decolor_total_remove --decolor_routine ‘Linear’ --dataset_folder <path-to-dataset>
 ```
-Below are the testing scripts for the models/datasets presented in the paper.
+*Testing*
 ```
 python test.py --dataset cifar10 --time_steps 20 --forward_process_type ‘Decolorization’ --exp_name <exp-name>  --decolor_total_remove --decolor_routine ‘Linear’ --dataset_folder <path-to-dataset> --sampling_routine x0_step_down --test_type test_data --order_seed 1
 python test.py --dataset celebA --time_steps 20 --forward_process_type ‘Decolorization’ --exp_name <exp-name>  --decolor_total_remove --decolor_routine ‘Linear’ --dataset_folder <path-to-dataset> --sampling_routine x0_step_down --test_type test_data --order_seed 1
