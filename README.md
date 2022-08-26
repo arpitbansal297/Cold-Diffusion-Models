@@ -20,7 +20,7 @@ To cite our paper please use the following bibtex entry.
 
 ## Preparing the Datasets
 
-We use the `create_data.py` file to split data into individual folders for training and testing data. The MNIST and CIFAR-10 datasets can be processed directly with `create_data.py,` but a path to the folder for the CelebA dataset is required. The AFHQ dataset is already split up into individual folders for training and testing data, so preprocessing is unecessary. The save directory for each of the data folders can be modified and will be used in the training scripts for the various hot/cold diffusion models.
+We use the `create_data.py` file to split data into individual folders for training and testing data. The MNIST and CIFAR-10 datasets can be processed directly with `create_data.py`, but a path to the folder for the CelebA dataset is required. The AFHQ dataset is already split up into individual folders for training and testing data, so preprocessing is unecessary. The save directory for each of the data folders can be modified and will be used in the training scripts for the various hot/cold diffusion models.
 
 ## Denoising (hot) Diffusion Models
 
