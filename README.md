@@ -3,13 +3,26 @@
 
 The official PyTorch implementation of <a href="https://arxiv.org/abs/2208.09392">Cold-Diffusion</a>. Developed collaboratively by Arpit Bansal, Eitan Borgnia, Hong-Min Chu, Jie Li, and Hamid Kazemi, all at the University of Maryland. This repository has code to train and test various cold diffusion models based on the following image degradations: Gaussian blur, Gaussian mask, resolution downsampling, color desaturation, image snow, and _animorphosis_. Our implementation is based on the denoising diffusion repository from <a href="https://github.com/lucidrains/denoising-diffusion-pytorch">lucidrains</a>, which is a PyTorch implementation of <a href="https://arxiv.org/abs/2006.11239">DDPM</a>.
 
-Download the CelebA-HQ and AFHQ dataset.
-Use the following script to create data and use them as path to data for MNIST, Cifar10 and CelebA. 
-```
-python create_data.py
+## Citing Our Work
+
+To cite our paper please use the following bibtex entry.
+
+```bibtex
+@misc{bansal2022cold,
+      title={Cold Diffusion: Inverting Arbitrary Image Transforms Without Noise}, 
+      author={Arpit Bansal and Eitan Borgnia and Hong-Min Chu and Jie S. Li and Hamid Kazemi and Furong Huang and Micah Goldblum and Jonas Geiping and Tom Goldstein},
+      year={2022},
+      eprint={2208.09392},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
 ```
 
-## Denoise
+## Preparing the Datasets
+
+We use the `create_data.py` file to split data into individual folders for training and testing data. The MNIST and CIFAR-10 datasets can be processed directly with `create_data.py,` but a path to the folder for the CelebA dataset is required. The AFHQ dataset is already split up into individual folders for training and testing data, so preprocessing is unecessary. The save directory for each of the data folders can be modified and will be used in the training scripts for the various hot/cold diffusion models.
+
+## Denoising (traditional DDPM)
 
 #### Training 
 ```
@@ -169,18 +182,4 @@ Testing
 ```
 python test.py --dataset cifar10 --time_steps 20 --forward_process_type ‘Decolorization’ --exp_name <exp-name>  --decolor_total_remove --decolor_routine ‘Linear’ --dataset_folder <path-to-dataset> --sampling_routine x0_step_down --test_type test_data --order_seed 1
 python test.py --dataset celebA --time_steps 20 --forward_process_type ‘Decolorization’ --exp_name <exp-name>  --decolor_total_remove --decolor_routine ‘Linear’ --dataset_folder <path-to-dataset> --sampling_routine x0_step_down --test_type test_data --order_seed 1
-```
-
-
-## Citation
-
-```bibtex
-@misc{bansal2022cold,
-      title={Cold Diffusion: Inverting Arbitrary Image Transforms Without Noise}, 
-      author={Arpit Bansal and Eitan Borgnia and Hong-Min Chu and Jie S. Li and Hamid Kazemi and Furong Huang and Micah Goldblum and Jonas Geiping and Tom Goldstein},
-      year={2022},
-      eprint={2208.09392},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
-}
 ```
