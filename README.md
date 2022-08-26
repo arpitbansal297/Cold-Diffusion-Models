@@ -1,7 +1,7 @@
 # Cold Diffusion: Inverting Arbitrary Image Transforms Without Noise
 <img src="./all_transform_cover.png" width="1000px"></img>
 
-This repository is the official PyTorch implementation of <a href="https://arxiv.org/abs/2208.09392">Cold-Diffusion</a>.
+The official PyTorch implementation of <a href="https://arxiv.org/abs/2208.09392">Cold-Diffusion</a>. Developed collaboratively by Arpit Bansal, Eitan Borgnia, Hong-Min Chu, Jie Li, and Hamid Kazemi, all at the University of Maryland. This repository has code to train and test various cold diffusion models based on the following image degradations: Gaussian blur, Gaussian mask, resolution downsampling, color desaturation, image snow, and _animorphosis_. Our implementation is based on the denoising diffusion repository from <a href="https://github.com/lucidrains/denoising-diffusion-pytorch">lucidrains</a>, which is a PyTorch implementation of <a href="https://arxiv.org/abs/2006.11239">DDPM</a>.
 
 Download the CelebA-HQ and AFHQ dataset.
 Use the following script to create data and use them as path to data for MNIST, Cifar10 and CelebA. 
