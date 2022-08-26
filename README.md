@@ -132,7 +132,6 @@ python celebA_test.py --time_steps 100 --fade_routine Incremental --save_folder 
 
 Below is the training script for the models presented in the paper.
 ```
-cd defading-generation-diffusion-pytorch
 python celebA_128.py --reverse --kernel_std 0.05 --initial_mask 1 --time_steps 750 --sampling_routine x0_step_down --save_folder <Path to save models> --data_path <Path to data folder>
 ```
 
