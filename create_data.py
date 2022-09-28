@@ -20,7 +20,7 @@ def del_folder(path):
         pass
 
 
-CelebA_folder = '/fs/cml-datasets/CelebA-HQ/images-128/' # change this to folder which has CelebA data
+CelebA_folder = "Path" # change this to folder which has CelebA data
 
 ############################################# MNIST ###############################################
 trainset = torchvision.datasets.MNIST(

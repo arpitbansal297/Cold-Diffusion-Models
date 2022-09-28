@@ -31,7 +31,7 @@ parser.add_argument('--save_folder', default='test_speed_celebA', type=str)
 parser.add_argument('--kernel_std', default=0.1, type=float)
 parser.add_argument('--initial_mask', default=11, type=int)
 parser.add_argument('--load_path', default=None, type=str)
-parser.add_argument('--data_path', default='/cmlscratch/bansal01/spring_2022/Cold-Diffusion/deblurring-diffusion-pytorch/root_celebA_128_train_new/', type=str)
+parser.add_argument('--data_path', default=None, type=str)
 parser.add_argument('--fade_routine', default="Incremental", type=str)
 parser.add_argument('--sampling_routine', default='x0_step_down', type=str)
 parser.add_argument('--remove_time_embed', action="store_true")
@@ -70,8 +70,6 @@ diffusion = torch.nn.DataParallel(diffusion, device_ids=range(torch.cuda.device_
 
 trainer = Trainer(
     diffusion,
-    # '/cmlscratch/bansal01/CelebA_train_new/train/',
-    # './root_celebA_128_train/',
     args.data_path,
     image_size=args.image_size,
     train_batch_size=100,

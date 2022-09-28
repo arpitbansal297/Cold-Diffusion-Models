@@ -24,27 +24,6 @@ create = 0
 from pathlib import Path
 from PIL import Image
 
-if create:
-    root_train = './root_celebA_128_train_new/'
-    root_test = './root_celebA_128_test_new/'
-    del_folder(root_train)
-    create_folder(root_train)
-
-    del_folder(root_test)
-    create_folder(root_test)
-
-    exts = ['jpg', 'jpeg', 'png']
-    folder = '/fs/cml-datasets/CelebA-HQ/images-128/'
-    paths = [p for ext in exts for p in Path(f'{folder}').glob(f'**/*.{ext}')]
-
-    for idx in range(len(paths)):
-        img = Image.open(paths[idx])
-        print(idx)
-        if idx < 0.9*len(paths):
-            img.save(root_train + str(idx) + '.png')
-        else:
-            img.save(root_test + str(idx) + '.png')
-
 
 
 

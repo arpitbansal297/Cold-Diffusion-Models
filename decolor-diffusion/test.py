@@ -28,8 +28,8 @@ def del_folder(path):
 parser = argparse.ArgumentParser()
 parser.add_argument('--time_steps', default=50, type=int)
 parser.add_argument('--sample_steps', default=None, type=int)
-parser.add_argument('--save_folder_train', default='/cmlscratch/hmchu/cold_diff/', type=str)
-parser.add_argument('--save_folder_test', default='/cmlscratch/hmchu/cold_diff_paper_test/', type=str)
+parser.add_argument('--save_folder_train', default=None, type=str)
+parser.add_argument('--save_folder_test', default=None, type=str)
 parser.add_argument('--load_path', default=None, type=str)
 parser.add_argument('--test_type', default='train_data', type=str)
 parser.add_argument('--train_routine', default='Final', type=str)
@@ -72,8 +72,6 @@ parser.add_argument('--test_fid', action='store_true')
 args = parser.parse_args()
 assert len(args.exp_name) > 0
 
-#if args.test_type == 'test_paper':
-#    args.save_folder_test = '/cmlscratch/hmchu/cold_diff_paper_test/'
 
 if args.load_model_steps != -1:
     args.load_path = os.path.join(args.save_folder_train, args.exp_name, f'model_{args.load_model_steps}.pt')
