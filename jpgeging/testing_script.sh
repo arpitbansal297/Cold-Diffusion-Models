@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+python test.py --time_steps 20 --forward_process_type 'Decolorization' --dataset_folder <path_to_cifar10_test_set> --exp_name 'cifar_exp' --decolor_total_remove --decolor_routine 'Linear' --sampling_routine x0_step_down --test_type test_paper --order_seed 1 --test_fid
+python test.py --time_steps 20 --forward_process_type 'Decolorization' --exp_name 'celeba_exp' --decolor_total_remove --decolor_routine 'Linear' --dataset celebA --dataset_folder <path_to_celeba_test_set> --resolution 64 --resume_training --sampling_routine x0_step_down --test_type test_paper --order_seed 1 --test_fid
